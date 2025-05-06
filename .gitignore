@@ -1,0 +1,8 @@
+# R temporary files
+.Rhistory
+.RData
+.Rproj.user/
+.Ruserdata
+
+# Mark temp files
+tmp/
