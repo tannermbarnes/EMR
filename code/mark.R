@@ -17,7 +17,7 @@ file.copy(
 )
 file.exists(file.path(markpath, "mark.exe"))
 
-# Load your data from your files
+# Step 1: Load your data from your files
 emr_data <- read_excel("C:/Users/Tanner/OneDrive - Michigan Technological University/PhD/EMR/EMR Survey Detection Data (version 1).xlsx", 
 sheet = "Sheet1")
 
