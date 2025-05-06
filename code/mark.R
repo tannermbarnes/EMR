@@ -166,3 +166,8 @@ print(popan_summary_df)
 
 # Optional: Export
 write.csv(popan_summary_df, "C:/Users/Tanner/OneDrive - Michigan Technological University/PhD/EMR/POPAN_Estimates_AllSites.csv", row.names = FALSE)
+
+
+if (!dir.exists("tmp")) dir.create("tmp")
+mark_files <- list.files(pattern = "^mark.*\\.(inp|out|tmp|vcv|res)$")
+file.rename(mark_files, file.path("tmp", mark_files))
