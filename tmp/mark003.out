@@ -1,6 +1,6 @@
 
  Program  MARK  - Survival Rate Estimation with Capture-Recapture Data
- gfortran(dble/PIM2) Vers. 11.1 Nov 2024   7-May-2025 09:03:20    Page  001
+ gfortran(dble/PIM2) Vers. 11.1 Nov 2024   7-May-2025 09:41:06    Page  001
   
  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
  
@@ -36,7 +36,7 @@
  For procedure chmatrix CPU Time was 0.001 secs and System Time was 0.001 secs.
 
 Program  MARK  - Survival Rate Estimation with Capture-Recapture Data
- gfortran(dble/PIM2) Vers. 11.1 Nov 2024   7-May-2025 09:03:20    Page  002
+ gfortran(dble/PIM2) Vers. 11.1 Nov 2024   7-May-2025 09:41:06    Page  002
  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
  
 
@@ -87,7 +87,7 @@
  INPUT ---       blabel(2)=p:(Intercept);
 
 Program  MARK  - Survival Rate Estimation with Capture-Recapture Data
- gfortran(dble/PIM2) Vers. 11.1 Nov 2024   7-May-2025 09:03:20    Page  003
+ gfortran(dble/PIM2) Vers. 11.1 Nov 2024   7-May-2025 09:41:06    Page  003
  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
  
  INPUT ---       blabel(3)=p:time2;
@@ -146,12 +146,12 @@
  Effective Sample Size = 63
 
  Number of function evaluations was 182 for 15 parameters.
- For numerical optimization, CPU Time was 0.578 secs and System Time was 0.485 secs.
+ For numerical optimization, CPU Time was 0.641 secs and System Time was 0.453 secs.
  -2logL { Phi(~1)p(~time)pent(~time)N(~1) } = 76.141638     
  Penalty { Phi(~1)p(~time)pent(~time)N(~1) } = 0.0000000     
 
 Program  MARK  - Survival Rate Estimation with Capture-Recapture Data
- gfortran(dble/PIM2) Vers. 11.1 Nov 2024   7-May-2025 09:03:21    Page  004
+ gfortran(dble/PIM2) Vers. 11.1 Nov 2024   7-May-2025 09:41:07    Page  004
  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
  
  Gradient { Phi(~1)p(~time)pent(~time)N(~1) }:
@@ -193,7 +193,7 @@
    * *  WARNING  * *   Divide by zero occurred computing the variance-covariance matrix. 
 
 Program  MARK  - Survival Rate Estimation with Capture-Recapture Data
- gfortran(dble/PIM2) Vers. 11.1 Nov 2024   7-May-2025 09:03:21    Page  005
+ gfortran(dble/PIM2) Vers. 11.1 Nov 2024   7-May-2025 09:41:07    Page  005
  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
  
      IEEE flag status computing the variance-covariance matrix:
@@ -244,7 +244,7 @@
     14:pent g1 a5 t6          0.7405844      Not a Number     1.0000000      0.6352182E-307   
 
 Program  MARK  - Survival Rate Estimation with Capture-Recapture Data
- gfortran(dble/PIM2) Vers. 11.1 Nov 2024   7-May-2025 09:03:21    Page  006
+ gfortran(dble/PIM2) Vers. 11.1 Nov 2024   7-May-2025 09:41:07    Page  006
  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
  
     15:pent g1 a6 t7         0.5787913E-228  Not a Number    Not a Number    Not a Number     
@@ -290,7 +290,7 @@
  ---- ----   --------------  --------------  --------------  --------------
    1     0    257.60450       0.0000000       257.60450       257.60450    
 
- To compute parameter estimates, CPU Time was 0.001 secs and System Time was 0.031 secs.
+ To compute parameter estimates, CPU Time was 0.016 secs and System Time was 0.016 secs.
      IEEE flag status processing derived parameters:
      overflow       F
      divide by zero F
@@ -303,21 +303,21 @@
   15  2 13  5  8  1  4  6  9  3  7 12 10 14 11
  Beta number 11 is a singular value.
 
- For procedure estimate CPU Time was 0.719 secs and System Time was 0.594 secs.
+ For procedure estimate CPU Time was 0.797 secs and System Time was 0.547 secs.
 
 Program  MARK  - Survival Rate Estimation with Capture-Recapture Data
- gfortran(dble/PIM2) Vers. 11.1 Nov 2024   7-May-2025 09:03:21    Page  007
+ gfortran(dble/PIM2) Vers. 11.1 Nov 2024   7-May-2025 09:41:07    Page  007
  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
  
 
 
  INPUT --- proc stop;
 
- For this job, CPU Time in mins was 0.012 and System Time in mins was 0.010.
+ For this job, CPU Time in mins was 0.014 and System Time in mins was 0.009.
 
-     Time Start = 09:03:20.713   Time End = 09:03:21.314
+     Time Start = 09:41:06.711   Time End = 09:41:07.276
 
- Wall Clock Time in mins for this job was 0.010.
+ Wall Clock Time in mins for this job was 0.009.
 
  Maximum of 20 words used.
 

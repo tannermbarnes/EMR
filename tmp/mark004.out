@@ -1,6 +1,6 @@
 
  Program  MARK  - Survival Rate Estimation with Capture-Recapture Data
- gfortran(dble/PIM2) Vers. 11.1 Nov 2024   7-May-2025 09:03:21    Page  001
+ gfortran(dble/PIM2) Vers. 11.1 Nov 2024   7-May-2025 09:41:07    Page  001
   
  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
  
@@ -36,7 +36,7 @@
  For procedure chmatrix CPU Time was 0.001 secs and System Time was 0.001 secs.
 
 Program  MARK  - Survival Rate Estimation with Capture-Recapture Data
- gfortran(dble/PIM2) Vers. 11.1 Nov 2024   7-May-2025 09:03:21    Page  002
+ gfortran(dble/PIM2) Vers. 11.1 Nov 2024   7-May-2025 09:41:07    Page  002
  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
  
 
@@ -87,7 +87,7 @@
  INPUT ---       blabel(2)=p:(Intercept);
 
 Program  MARK  - Survival Rate Estimation with Capture-Recapture Data
- gfortran(dble/PIM2) Vers. 11.1 Nov 2024   7-May-2025 09:03:21    Page  003
+ gfortran(dble/PIM2) Vers. 11.1 Nov 2024   7-May-2025 09:41:07    Page  003
  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
  
  INPUT ---       blabel(3)=p:time2;
@@ -146,12 +146,12 @@
  Effective Sample Size = 37
 
  Number of function evaluations was 60 for 15 parameters.
- For numerical optimization, CPU Time was 0.172 secs and System Time was 0.125 secs.
+ For numerical optimization, CPU Time was 0.188 secs and System Time was 0.140 secs.
  -2logL { Phi(~1)p(~time)pent(~time)N(~1) } = 49.339825     
  Penalty { Phi(~1)p(~time)pent(~time)N(~1) } = 0.0000000     
 
 Program  MARK  - Survival Rate Estimation with Capture-Recapture Data
- gfortran(dble/PIM2) Vers. 11.1 Nov 2024   7-May-2025 09:03:21    Page  004
+ gfortran(dble/PIM2) Vers. 11.1 Nov 2024   7-May-2025 09:41:07    Page  004
  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
  
  Gradient { Phi(~1)p(~time)pent(~time)N(~1) }:
@@ -159,7 +159,7 @@
   2.29330E-04  9.61325E-06 -2.47133E-05 -1.77287E-07   0.0000    
  -1.30712E-04 -9.10117E-05  4.60005E-06  4.23097E-05  1.52176E-04
  Maximum ABS(G) { Phi(~1)p(~time)pent(~time)N(~1) } =  2.29330E-04
- To compute VC matrix, CPU Time was 0.062 secs and System Time was 0.047 secs.
+ To compute VC matrix, CPU Time was 0.078 secs and System Time was 0.032 secs.
  S Vector { Phi(~1)p(~time)pent(~time)N(~1) }:
    32.22314      13.80699      8.704725      5.837377      3.060870    
    1.200018     0.2575378     0.5660159E-01 0.6152313E-05 0.2238128E-05
@@ -198,7 +198,7 @@
     7:p:time6                4.1586163       160.25636      -309.94386       318.26110    
 
 Program  MARK  - Survival Rate Estimation with Capture-Recapture Data
- gfortran(dble/PIM2) Vers. 11.1 Nov 2024   7-May-2025 09:03:21    Page  005
+ gfortran(dble/PIM2) Vers. 11.1 Nov 2024   7-May-2025 09:41:07    Page  005
  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
  
     8:p:time7               -6.7178922       470.52536      -928.94762       915.51184    
@@ -267,7 +267,7 @@
    1     5    32.854220       10.304337       18.024125       59.886387    
 
 Program  MARK  - Survival Rate Estimation with Capture-Recapture Data
- gfortran(dble/PIM2) Vers. 11.1 Nov 2024   7-May-2025 09:03:21    Page  006
+ gfortran(dble/PIM2) Vers. 11.1 Nov 2024   7-May-2025 09:41:07    Page  006
  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
  
    1     6    8.5006613       2.6060932       4.7242040       15.295961    
@@ -279,18 +279,18 @@
  ---- ----   --------------  --------------  --------------  --------------
    1     0    116.16298       96.934105       27.942654       482.91184    
 
- To compute parameter estimates, CPU Time was 0.016 secs and System Time was 0.047 secs.
+ To compute parameter estimates, CPU Time was 0.001 secs and System Time was 0.031 secs.
 
  Attempted ordering of parameters by estimatibility:
   15  1 11  6 14 12  2  5  7 13  8  3  9  4 10
  Beta number 10 is a singular value.
 
- For procedure estimate CPU Time was 0.250 secs and System Time was 0.219 secs.
+ For procedure estimate CPU Time was 0.297 secs and System Time was 0.235 secs.
  INPUT --- proc stop;
 
  For this job, CPU Time in mins was 0.005 and System Time in mins was 0.004.
 
-     Time Start = 09:03:21.631   Time End = 09:03:21.889
+     Time Start = 09:41:07.607   Time End = 09:41:07.856
 
  Wall Clock Time in mins for this job was 0.004.
 
