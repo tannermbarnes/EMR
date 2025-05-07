@@ -45,17 +45,38 @@ detections_week <- emr_data_summary %>%
 # Detections per month
 detections_month <- emr_data_summary %>%
   count(month)
+detections_month
 
 detections_per_site <- emr_data_summary %>%
   count(Site)
+detections_per_site
 
 id_vs_noid <- emr_data_summary %>%
   count(is_identified)
+id_vs_noid
 
 unique_ids_per_site <- emr_data_summary %>%
   filter(is_identified) %>%
   distinct(Site, `Detection ID`) %>%
   count(Site, name = "unique_individuals")
+unique_ids_per_site
+
+individuals_more_than_once <- emr_data_clean %>%
+  filter(`Detection ID` != "No ID") %>%
+  group_by(Site, `Detection ID`) %>%
+  summarise(n_detections = n(), .groups = "drop") %>%
+  filter(n_detections > 1) %>%
+  group_by(Site) %>%
+  summarise(individuals_more_than_once = n())
+individuals_more_than_once
+  
+individuals_multiple_sites <- emr_data_clean %>%
+  filter(`Detection ID` != "No ID") %>%
+  distinct(`Detection ID`, Site) %>%
+  group_by(`Detection ID`) %>%
+  summarise(n_sites = n_distinct(Site), .groups = "drop") %>%
+  filter(n_sites > 1)
+individuals_multiple_sites
 
 mean_detections_per_id <- emr_data_summary %>%
   filter(is_identified) %>%

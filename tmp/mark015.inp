@@ -1,22 +1,19 @@
- proc title ; proc chmatrix occasions= 7 groups= 1 etype= POPAN Nodes= 101 ICMeans NoHist hist= 16
+ proc title ; proc chmatrix occasions= 7 groups= 1 etype= POPAN Nodes= 101 ICMeans NoHist hist= 13
  ; time interval 1 1 1 1 1 1 ;
 glabel(1)=Group 1;
- 0000001 17;
- 0000010 6;
- 0000011 4;
- 0000100 18;
- 0000101 2;
- 0000111 3;
- 0001000 2;
- 0001100 2;
- 0001101 8;
- 0001110 6;
+ 0000001 9;
+ 0000010 10;
+ 0000011 2;
+ 0000100 22;
+ 0000110 2;
+ 0001000 10;
+ 0001010 2;
+ 0001100 7;
  0010000 1;
- 0100000 1;
- 0100010 4;
- 0101100 3;
- 1001010 3;
- 1001110 9;
+ 0010100 6;
+ 0100000 5;
+ 0110000 2;
+ 1000000 1;
 proc estimate link=Parm-Specific NOLOOP varest=2ndPart    ;
 model={ Phi(~1)p(~1)pent(~1)N(~1) };
 group=1 Phi    rows=1 cols=6 Square ;

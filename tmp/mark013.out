@@ -1,6 +1,6 @@
 
  Program  MARK  - Survival Rate Estimation with Capture-Recapture Data
- gfortran(dble/PIM2) Vers. 11.1 Nov 2024   6-May-2025 11:15:49    Page  001
+ gfortran(dble/PIM2) Vers. 11.1 Nov 2024   7-May-2025 09:20:50    Page  001
   
  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
  
@@ -36,7 +36,7 @@
  For procedure chmatrix CPU Time was 0.001 secs and System Time was 0.001 secs.
 
 Program  MARK  - Survival Rate Estimation with Capture-Recapture Data
- gfortran(dble/PIM2) Vers. 11.1 Nov 2024   6-May-2025 11:15:49    Page  002
+ gfortran(dble/PIM2) Vers. 11.1 Nov 2024   7-May-2025 09:20:50    Page  002
  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
  
 
@@ -87,7 +87,7 @@
    Model is { Phi(~1)p(~1)pent(~1)N(~1) }
 
 Program  MARK  - Survival Rate Estimation with Capture-Recapture Data
- gfortran(dble/PIM2) Vers. 11.1 Nov 2024   6-May-2025 11:15:49    Page  003
+ gfortran(dble/PIM2) Vers. 11.1 Nov 2024   7-May-2025 09:20:50    Page  003
  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
  
 
@@ -117,13 +117,13 @@
  Effective Sample Size = 63
 
  Number of function evaluations was 21 for 4 parameters.
- For numerical optimization, CPU Time was 0.016 secs and System Time was 0.001 secs.
+ For numerical optimization, CPU Time was 0.031 secs and System Time was 0.015 secs.
  -2logL { Phi(~1)p(~1)pent(~1)N(~1) } = 118.02492     
  Penalty { Phi(~1)p(~1)pent(~1)N(~1) } = 0.0000000     
  Gradient { Phi(~1)p(~1)pent(~1)N(~1) }:
    0.0000       0.0000       0.0000      7.38670E-07
  Maximum ABS(G) { Phi(~1)p(~1)pent(~1)N(~1) } =  7.38670E-07
- To compute VC matrix, CPU Time was 0.001 secs and System Time was 0.016 secs.
+ To compute VC matrix, CPU Time was 0.001 secs and System Time was 0.001 secs.
  S Vector { Phi(~1)p(~1)pent(~1)N(~1) }:
    66.90465      5.172415      1.818824     0.8396217    
  To invert VC matrix, CPU Time was 0.001 secs and System Time was 0.001 secs.
@@ -147,7 +147,7 @@
  Fletcher chat { Phi(~1)p(~1)pent(~1)N(~1) } = 4.0400737               
 
 Program  MARK  - Survival Rate Estimation with Capture-Recapture Data
- gfortran(dble/PIM2) Vers. 11.1 Nov 2024   6-May-2025 11:15:49    Page  004
+ gfortran(dble/PIM2) Vers. 11.1 Nov 2024   7-May-2025 09:20:50    Page  004
  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
  
          PARM-SPECIFIC Link Function Parameters of { Phi(~1)p(~1)pent(~1)N(~1) }
@@ -217,19 +217,19 @@
  ---- ----   --------------  --------------  --------------  --------------
    1     0    128.84235       28.552448       83.883927       197.89669    
 
- To compute parameter estimates, CPU Time was 0.001 secs and System Time was 0.015 secs.
+ To compute parameter estimates, CPU Time was 0.001 secs and System Time was 0.016 secs.
 
 Program  MARK  - Survival Rate Estimation with Capture-Recapture Data
- gfortran(dble/PIM2) Vers. 11.1 Nov 2024   6-May-2025 11:15:49    Page  005
+ gfortran(dble/PIM2) Vers. 11.1 Nov 2024   7-May-2025 09:20:50    Page  005
  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
  
 
- For procedure estimate CPU Time was 0.047 secs and System Time was 0.047 secs.
+ For procedure estimate CPU Time was 0.062 secs and System Time was 0.063 secs.
  INPUT --- proc stop;
 
- For this job, CPU Time in mins was 0.001 and System Time in mins was 0.001.
+ For this job, CPU Time in mins was 0.002 and System Time in mins was 0.002.
 
-     Time Start = 11:15:49.549   Time End = 11:15:49.608
+     Time Start = 09:20:50.796   Time End = 09:20:50.869
 
  Wall Clock Time in mins for this job was 0.001.
 
