@@ -93,8 +93,8 @@ head(popan_input)
 # Define model parameters
 model_parameters <- list(
   Phi = list(formula = ~1),
-  p = list(formula = ~1),
-  pent = list(formula = ~1),
+  p = list(formula = ~time),
+  pent = list(formula = ~time),
   N = list(formula = ~1)
 )
 
@@ -185,7 +185,7 @@ print(popan_summary_df)
 
 
 # Export
-write.csv(popan_summary_df, "C:/Users/Tanner/OneDrive - Michigan Technological University/PhD/EMR/POPAN_model3_full_dependent.csv", row.names = FALSE)
+write.csv(popan_summary_df, "C:/Users/Tanner/OneDrive - Michigan Technological University/PhD/EMR/POPAN_varying.csv", row.names = FALSE)
 
 # Move MARK temporary files to new folder
 if (!dir.exists("tmp")) dir.create("tmp")
