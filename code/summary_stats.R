@@ -159,3 +159,156 @@ ggsave(
   height = 6,
   dpi = 300
 )
+
+# presence-only model ################################################################################################
+library(broom)
+library(purrr)
+library(effects)
+
+emr_data <- emr_data %>%
+  mutate(
+    month = month(date, label = TRUE),
+    hour = hour(hms::as_hms(Time)),
+    day = day(date)
+  )
+# Model for entire dataset
+glm_model_data <- emr_data %>%
+  group_by(month, hour) %>%
+  summarise(detections = n(),
+            temp = mean(Temperature, na.rm = TRUE),
+            .groups = "drop")
+
+#check for colinearity
+library(car)
+lm_check <- lm(temp ~ hour + month, data = glm_model_data)
+vif(lm_check)  # Values > 5 or 10 suggest problematic collinearity
+
+
+
+
+glm(detections ~ hour + temp + month, family = "poisson", data = glm_model_data)
+summary(glm_model)
+
+
+plot(allEffects(glm_model))
+dispersion <- sum(residuals(glm_model, type = "pearson")^2) / df.residual(glm_model)
+print(dispersion)  # > 1 means overdispersed
+library(MASS)
+glm_nb <- glm.nb(detections ~ hour + Temperature + month, data = glm_model_data)
+summary(glm_nb)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# By site
+# Field 3 
+field3 <- emr_data %>%
+  filter(Site == "Field 3") %>%
+  group_by(month, hour) %>%
+  summarise(
+    detections = n(),
+    temp = mean(Temperature, na.rm = TRUE),
+    .groups = "drop"
+  )
+
+field3_model <- glm(detections ~ hour + temp + month, data = field3, family = "poisson")
+summary(field3_model)
+
+# South shore
+south_shore <- emr_data %>%
+  filter(Site == "South Shore") %>%
+  group_by(month, hour) %>%
+  summarise(
+    detections = n(),
+    temp = mean(Temperature, na.rm = TRUE),
+    .groups = "drop"
+  )
+
+south_shore_model <- glm(detections ~ hour + temp + month, data = south_shore, family = "poisson")
+summary(south_shore_model)
+
+# Tree Graveyard
+tree_graveyard <- emr_data %>%
+  filter(Site == "Tree Graveyard") %>%
+  group_by(month, hour) %>%
+  summarise(
+    detections = n(),
+    temp = mean(Temperature, na.rm = TRUE),
+    .groups = "drop"
+  )
+
+tree_graveyard_model <- glm(detections ~ hour + temp + month, data = tree_graveyard, family = "poisson")
+summary(tree_graveyard_model)
+
+
+emr_data %>%
+  group_by(Site) %>%
+  summarise(
+    n = n(),
+    temp_range = max(Temperature, na.rm = TRUE) - min(Temperature, na.rm = TRUE),
+    hour_range = max(hour, na.rm = TRUE) - min(hour, na.rm = TRUE)
+  )
+
+# Check to see if temperature is normally distributed
+ggplot(emr_data, aes(x = Temperature)) +
+  geom_histogram(aes(y = after_stat(density)), bins = 30, fill = "skyblue", color = "white") +
+  geom_density(color = "darkblue", size = 1.2) +
+  facet_wrap(~ Site) +
+  labs(title = "Temperature Distribution by Site", x = "Temperature", y = "Density") +
+  theme_bw()
+emr_data %>%
+  group_by(Site) %>%
+  summarise(
+    shapiro_p = shapiro.test(Temperature)$p.value
+  )
+
+# Check to see if hour is normally distributed
+ggplot(emr_data, aes(x = hour)) +
+  geom_histogram(aes(y = after_stat(density)), bins = 24, fill = "lightgreen", color = "white") +
+  geom_density(color = "darkgreen", size = 1.2) +
+  facet_wrap(~ Site) +
+  labs(title = "Hour of Detection Distribution by Site", x = "Hour", y = "Density") +
+  theme_bw()
+emr_data %>%
+  group_by(Site) %>%
+  summarise(
+    shapiro_p = shapiro.test(hour)$p.value
+  )
+
+
+
+
+
+
+# Simplified model
+emr_data_filter <- emr_data %>%
+  filter(Site != "Inholding") %>%
+  mutate(month = month(date, label = TRUE)) %>%
+  group_by(Site, date, month) %>%
+  summarise(
+    detected = n() > 0,
+    hour = mean(hour),
+    temperature = mean(Temperature, na.rm = TRUE),
+    .groups = "drop"
+  )
+
+# Run binomial GLM
+glm_model <- glm(
+  detected ~ hour + temperature + month,
+  family = binomial,
+  data = emr_data_filter
+)
+
+summary(glm_model)
