@@ -39,8 +39,6 @@ emr_data_clean <- emr_data %>%
     celsius = ((Temperature - 32) * (5/9))
   )
 
-View(emr_data_clean)
-
 
 #############################################################################################################
 # Develop a binomial presence/absence model
@@ -55,7 +53,7 @@ min_hour <- hour_bounds$min_hour
 max_hour <- hour_bounds$max_hour
 
 # Unique dates and sites
-all_dates <- seq(min(emr_data_clean$date), max(emr_data_clean$date), by = "1 day")
+all_dates <- seq(deployment_start, max(emr_data_clean$date), by = "1 day")
 all_sites <- unique(emr_data_clean$Site)
 active_hours <- min_hour:max_hour
 
@@ -90,9 +88,11 @@ model_data <- effort_grid %>%
   )
 
 model_data <- model_data %>%
-  mutate(month = factor(month, ordered = FALSE), 
-        (hour2 = hour^2))
+  mutate(month = factor(month, ordered = FALSE),
+        hour2 = hour^2) %>% 
+        mutate(month = relevel(month, ref = "May"))
 
+glm_month_nominal <- glm(detected ~ month, family = binomial, data = model_data)
 pred_df <- data.frame(month = levels(model_data$month))
 pred_df$pred_prob <- predict(glm_month_nominal, newdata = pred_df, type = "response")
 # Define the month order explicitly
@@ -119,14 +119,23 @@ site_model_summaries <- map_dfr(site_models, tidy, .id = "Site")
 # View only significant results
 site_model_summaries %>% filter(p.value < 0.05)
 
-# Field 3 models
-field3_data <- model_data %>% filter(Site == "Field 3")
-tg_data <- model_data %>% filter(Site == "Tree Graveyard")
-ss_data <- model_data %>% filter(Site == "South Shore")
-tg_ss_data <- model_data %>% filter(Site == "South Shore" | Site == "Tree Graveyard")
+# Split model data by Site
+field3_data <- model_data %>% filter(Site == "Field 3") %>% 
+  mutate(month = relevel(month, ref = "May"))
+tg_data <- model_data %>% filter(Site == "Tree Graveyard") %>% 
+  mutate(month = relevel(month, ref = "May"))
+ss_data <- model_data %>% filter(Site == "South Shore") %>% 
+  mutate(month = relevel(month, ref = "May"))
+tg_ss_data <- model_data %>% filter(Site == "South Shore" | Site == "Tree Graveyard") %>% 
+  mutate(month = relevel(month, ref = "May"))
 
 
 # Fit a quadratic model per site
+model_data_model <- glm(detected ~ month + hour + hour2, 
+                        family = binomial, 
+                        data = model_data)
+summary(model_data_model)                        
+
 field3_quad <- glm(detected ~ month + hour + hour2, 
                     family = binomial, 
                     data = field3_data)
@@ -244,3 +253,4 @@ ggplot(new_data, aes(x = hour, y = predicted)) +
     x = "Hour of Day"
   ) +
   theme_bw()
+

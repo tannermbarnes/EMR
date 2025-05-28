@@ -30,6 +30,7 @@ emr_data <- emr_data %>%
 emr_data_clean <- emr_data %>%
   mutate(month = format(as.Date(Date), "%Y-%m"))
 
+
 emr_data_summary <- emr_data_clean %>%
   mutate(
     date = as.Date(Date),
@@ -37,6 +38,9 @@ emr_data_summary <- emr_data_clean %>%
     month = floor_date(date, unit = "month"),
     is_identified = `Detection ID` != "No ID"
   )
+
+detections_month_site <- emr_data_clean %>% 
+count(Site, month)
 
 # Detections per week
 detections_week <- emr_data_summary %>%
@@ -186,15 +190,14 @@ vif(lm_check)  # Values > 5 or 10 suggest problematic collinearity
 
 
 
-glm(detections ~ hour + temp + month, family = "poisson", data = glm_model_data)
+glm_model <- glm(detections ~ hour + temp + month, family = "poisson", data = glm_model_data)
 summary(glm_model)
-
 
 plot(allEffects(glm_model))
 dispersion <- sum(residuals(glm_model, type = "pearson")^2) / df.residual(glm_model)
 print(dispersion)  # > 1 means overdispersed
 library(MASS)
-glm_nb <- glm.nb(detections ~ hour + Temperature + month, data = glm_model_data)
+glm_nb <- glm.nb(detections ~ hour + temp + month, data = glm_model_data)
 summary(glm_nb)
 
 
